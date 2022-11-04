@@ -2,6 +2,8 @@ import {
   Button,
   Container,
   Flex,
+  FormControl,
+  FormLabel,
   Heading,
   HStack,
   Input,
@@ -61,16 +63,25 @@ export default function AuthForm({ signIn }: { signIn: boolean }) {
             <Heading textAlign='center'>FarmHub</Heading>
           </VStack>
           <Stack spacing={2}>
-            <Input
-              type='email'
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <Input
-              type='password'
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-            />
+            <FormControl>
+              <FormLabel>Email</FormLabel>
+              <Input
+                type='email'
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder='Email'
+              />
+            </FormControl>
+            <FormControl>
+              <FormLabel>Password</FormLabel>{' '}
+              <Input
+                type='password'
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder='password'
+              />
+            </FormControl>
+
             <Button isDisabled={loading} isLoading={loading} type='submit'>
               {signIn ? 'Sign In' : 'Sign Up'}
             </Button>
