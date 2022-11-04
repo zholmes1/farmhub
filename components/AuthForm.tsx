@@ -22,7 +22,7 @@ import { useState } from 'react'
 import { FaTractor } from 'react-icons/fa'
 import { useAuth } from 'reactfire'
 
-export default ({ signIn }: { signIn: boolean }) => {
+export default function AuthForm({ signIn }: { signIn: boolean }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)

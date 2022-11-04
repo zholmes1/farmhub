@@ -27,20 +27,20 @@ const firebaseConfig = {
   measurementId: 'G-MJ4P30LWRV'
 }
 
-const App: React.FC<{ children: any }> = ({ children }) => {
+const Providers: React.FC<{ children: any }> = ({ children }) => {
   const app = useFirebaseApp()
   const auth = getAuth(app)
 
   return <AuthProvider sdk={auth}>{children}</AuthProvider>
 }
 
-export default ({ Component, pageProps }: AppProps) => {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-        <App>
+        <Providers>
           <Component {...pageProps} />
-        </App>
+        </Providers>
       </FirebaseAppProvider>
     </ChakraProvider>
   )

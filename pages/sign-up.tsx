@@ -1,5 +1,5 @@
 import AuthForm from '../components/AuthForm'
 
-export default () => {
+export default function SignUp() {
   return <AuthForm signIn={false} />
 }
